@@ -22,7 +22,7 @@ public:
 
 	void push(const T& element)
 	{
-		if (position_ > capacity_)
+		if (position_ >= capacity_)
 		{
 			throw std::out_of_range("Not enough capacity");
 		}
@@ -35,7 +35,7 @@ public:
 
 	void push(T&& element)
 	{
-		if (position_ > capacity_)
+		if (position_ >= capacity_)
 		{
 			throw std::out_of_range("Not enough capacity");
 		}
