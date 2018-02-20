@@ -8,7 +8,7 @@ public:
     Stack(std::size_t capacity): storage_(new T[capacity]), capacity_(capacity) {}
     ~Stack(){
         if(storage_ != NULL){
-            delete storage_;
+            delete[] storage_;
         }
     }
 
