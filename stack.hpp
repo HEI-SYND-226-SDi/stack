@@ -33,7 +33,7 @@ public:
 
 	// Removing object from stack
     T pop() {
-		if (position_ < 0) throw std::out_of_range("Stack is empty");
+		if (position_ <= 0) throw std::out_of_range("Stack is empty");	// Third Fix if the position is 0 it can't go lower
 		return std::move(storage_[--position_]);						// First Fix position is incremented after having been wirten in
 	}
 
