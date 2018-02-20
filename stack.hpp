@@ -26,7 +26,8 @@ public:
 	}
 
 	T pop() {
-		if (position_ < 0) throw std::out_of_range("Stack is empty");
+
+		if (position_ <= 0) throw std::out_of_range("Stack is empty");	// < to <= because stack is empty when pos=0
 		return std::move(storage_[--position_]);	// changed to pre-decrement to avoid out of range indexes
 	}
 
