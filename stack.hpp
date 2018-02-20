@@ -30,6 +30,11 @@ public:
         return std::move(storage_[--position_]);
     }
 
+    ~Stack()
+    {
+        delete storage_;
+    }
+
 private:
     T* storage_;
     std::size_t capacity_;
