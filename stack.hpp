@@ -7,7 +7,7 @@ class Stack {
 public:
     Stack(std::size_t capacity): storage_(new T[capacity]), capacity_(capacity) {}
 	~Stack(){
-		delete storage;
+		delete storage_;
 	}
     inline std::size_t capacity() const {
         return capacity_;
