@@ -20,21 +20,21 @@ public:
     }
 
 	// Adding object t stack
-    void push(const T& element) {
-		if (position_ > capacity_) throw std::out_of_range("Not enough capacity");
-        storage_[position_++] = element;
-    }
+	void push(const T& element) {
+		if (position_ >= capacity_) throw std::out_of_range("Not enough capacity"); // Second Fix there is no positin nbr 3 in stack else it would need to be 4 big
+		storage_[position_++] = element;
+	}
 
 	// Adding object t stack
-    void push(T&& element) {
-		if (position_ > capacity_) throw std::out_of_range("Not enough capacity");
-        storage_[position_++] = std::move(element);
-    }
+	void push(T&& element) {
+		if (position_ >= capacity_) throw std::out_of_range("Not enough capacity"); // Second Fix there is no positin nbr 3 in stack else it would need to be 4 big
+		storage_[position_++] = std::move(element);
+	}
 
 	// Removing object from stack
     T pop() {
 		if (position_ < 0) throw std::out_of_range("Stack is empty");
-		return std::move(storage_[--position_]);						// First Fix position is incremented after having been wirtten in
+		return std::move(storage_[--position_]);						// First Fix position is incremented after having been wirten in
 	}
 
 private:
