@@ -16,7 +16,7 @@ public:
 	}
 
 	void push(const T& element) {
-		if (position_ > capacity_) throw std::out_of_range("Not enough capacity");
+		if (position_ >= capacity_) throw std::out_of_range("Not enough capacity");	// index range from 0 to capactiy -1
 		storage_[position_++] = element;
 	}
 
