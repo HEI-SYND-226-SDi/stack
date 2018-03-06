@@ -54,7 +54,7 @@ public:
 		}
 		else
 		{
-			return std::move(storage_[position_--]);
+			return std::move(storage_[--position_]);
 		}
     }
 
