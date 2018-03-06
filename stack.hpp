@@ -39,7 +39,11 @@ public:
 		{
 			throw std::out_of_range("Not enough capacity");
 		}
-        storage_[position_++] = std::move(element);
+		else
+        {
+			// only if no overflow
+			storage_[position_++] = std::move(element);
+		}
     }
 
     T pop()
