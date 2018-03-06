@@ -52,7 +52,10 @@ public:
 		{
 			throw std::out_of_range("Stack is empty");
 		}
-        return std::move(storage_[position_--]);
+		else
+		{
+			return std::move(storage_[position_--]);
+		}
     }
 
 private:
