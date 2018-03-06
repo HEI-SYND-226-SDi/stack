@@ -9,20 +9,21 @@ public:
 
 	}
 
-	~Stack()
-	{
-
+	~Stack(){
+		if(storage_ != NULL){
+			delete[] storage_;
+		}
 	}
 
 	// returns capacitiy of stack
-    inline std::size_t capacity() const {
-        return capacity_;
-    }
+	inline std::size_t capacity() const {
+		return capacity_;
+	}
 
 	// returns position in stack
-    inline std::size_t size() const {
-        return position_;
-    }
+	inline std::size_t size() const {
+		return position_;
+	}
 
 	// Adding object t stack
 	void push(const T& element) {
@@ -37,13 +38,13 @@ public:
 	}
 
 	// Removing object from stack
-    T pop() {
+	T pop() {
 		if (position_ <= 0) throw std::out_of_range("Stack is empty");	// Third Fix if the position is 0 it can't go lower
 		return std::move(storage_[--position_]);						// First Fix position is incremented after having been wirten in
 	}
 
 private:
-    T* storage_;
-    std::size_t capacity_;
-    std::size_t position_ = 0;
+	T* storage_;
+	std::size_t capacity_;
+	std::size_t position_ = 0;
 };
