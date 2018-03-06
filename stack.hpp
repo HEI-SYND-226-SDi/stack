@@ -6,7 +6,9 @@ template <typename T>
 class Stack
 {
 public:
-    Stack(std::size_t capacity): storage_(new T[capacity]), capacity_(capacity) {}
+    Stack(std::size_t capacity): storage_(new T[capacity]), capacity_(capacity)
+	{
+	}
 
     inline std::size_t capacity() const
 	{
@@ -20,7 +22,10 @@ public:
 
     void push(const T& element)
 	{
-        if (position_ > capacity_) throw std::out_of_range("Not enough capacity");
+        if (position_ >= capacity_)
+		{
+			throw std::out_of_range("Not enough capacity");
+		}
         storage_[position_++] = element;
     }
 
