@@ -9,6 +9,11 @@ public:
 
 	}
 
+	~Stack()
+	{
+
+	}
+
 	// returns capacitiy of stack
     inline std::size_t capacity() const {
         return capacity_;
