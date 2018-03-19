@@ -10,7 +10,7 @@ public:
     // Fix memory leak
     ~Stack()
     {
-        delete storage_;
+        delete[] storage_;
     }
 
 	inline std::size_t capacity() const {
