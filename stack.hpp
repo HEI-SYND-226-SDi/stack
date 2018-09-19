@@ -25,20 +25,20 @@ public:
     }
 
     void push(T&& element) {
-        position_++;
-        if (position_ > capacity()){
+        if (position_ == capacity()){
             position_--;
             throw std::out_of_range("Not enough capacity");
         }
-        storage_[position_-1] = std::move(element);
+        storage_[position_] = std::move(element);
+        position_++;
     }
 
     T pop() {
-        position_--;
-        if (position_ < 0){
+        if (position_ == 0){
             position_++;
             throw std::out_of_range("Stack is empty");
         }
+        position_--;
         return std::move(storage_[position_]);
     }
 
