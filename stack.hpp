@@ -16,12 +16,7 @@ public:
     }
 
     void push(const T& element) {
-     /*   if (position_ < capacity_) // -1 add for the check *************
-        {
-            throw std::out_of_range("Not enough capacity");
-        }
-    storage_[position_++] = element;
-   */
+
         if(position_ < capacity_)
         {
             storage_[position_]=element;
@@ -37,13 +32,7 @@ public:
     }
 
     void push(T&& element) {
-       /* if (position_ < capacity_) // -1 add for the check *************
-        {
-            throw std::out_of_range("Not enough capacity");
-        }
 
-            storage_[position_++] = std::move(element);
-        */
 
       if(position_ < capacity_)
       {
@@ -59,12 +48,7 @@ public:
     }
 
     T pop() {
-       /* if (position_ < 0)
-        {
-            throw std::out_of_range("Stack is empty");
-        }
-     return std::move(storage_[--position_]);
-*/
+
         if(position_ > 0)
         {
             return std::move(storage_[--position_]);
@@ -74,8 +58,16 @@ public:
             throw std::out_of_range("Stack is empty");
             return std::move(storage_[0]);
         }
-}
+        }
 
+    ~Stack()
+    {
+        if (storage_ != NULL)
+        {
+            delete storage_;
+            storage_ = NULL;
+        }
+    }
 private:
     T* storage_;
     std::size_t capacity_;
