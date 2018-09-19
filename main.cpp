@@ -16,6 +16,7 @@ int main() {
             stack.push(1);
             stack.push(2);
             stack.push(3);
+
         } catch (std::out_of_range) {
             return false;
         }
@@ -53,8 +54,9 @@ int main() {
         Stack<int> stack(3);
         try {
             stack.push(a);
+            stack.push(a);  
             stack.push(a);
-            stack.push(a);
+
         } catch (std::out_of_range) {
             return false;
         }
