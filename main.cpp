@@ -104,7 +104,16 @@ int main() {
         return false;
     });
 
-    std::cout << "** \033[32mALL TESTS PASSED, congrats!\033[0m **";
+    test(" -> Get capacity and size", []() {
+        Stack<int> stack(3);
+        stack.push(1);
+        stack.push(1);
+        std::cout << "Capacity: " << stack.capacity() << "\n";
+        std::cout << "Size: " << stack.size() << "\n";
+        return true;
+    });
+
+    std::cout << "** \033[32mALL TESTS PASSED, congrats!\033[0m **" << "\n";
 
     return 0;
 }
