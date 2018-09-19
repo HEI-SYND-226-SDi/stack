@@ -64,7 +64,7 @@ public:
     {
         if (storage_ != NULL)
         {
-            delete storage_;
+            delete[] storage_;
             storage_ = NULL;
         }
     }
