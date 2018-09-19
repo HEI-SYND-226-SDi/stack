@@ -16,18 +16,29 @@ public:
     }
 
     void push(const T& element) {
-        if (position_ > capacity_) throw std::out_of_range("Not enough capacity");
-        storage_[position_++] = element;
+        position_++;
+        if (position_ > capacity()){
+            position_--;
+            throw std::out_of_range("Not enough capacity");
+        }
+        storage_[position_-1] = element;
     }
 
     void push(T&& element) {
-        if (position_ > capacity_) throw std::out_of_range("Not enough capacity");
-        storage_[position_++] = std::move(element);
+        if (position_ == capacity()){
+            position_--;
+            throw std::out_of_range("Not enough capacity");
+        }
+        storage_[position_] = std::move(element);
+        position_++;
     }
 
     T pop() {
-        if (position_ < 0) throw std::out_of_range("Stack is empty");
-        return std::move(storage_[position_--]);
+        if (position_ == 0){
+            throw std::out_of_range("Stack is empty");
+        }
+        position_--;
+        return std::move(storage_[position_]);
     }
 
 private:
