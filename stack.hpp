@@ -47,7 +47,15 @@ public:
         } else
         {
             throw std::out_of_range("Stack is empty");
-            return std::move(storage_[0]);
+        }
+    }
+
+    ~Stack()
+    {
+        if(storage_ != NULL)
+        {
+            delete storage_;
+            storage_ = NULL;
         }
     }
 
