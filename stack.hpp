@@ -21,7 +21,7 @@ public:
     }
 
     void push(T&& element) {
-        if (position_ > capacity_) throw std::out_of_range("Not enough capacity");
+        if (position_ == capacity_) throw std::out_of_range("Not enough capacity");
         storage_[position_++] = std::move(element);
     }
 
