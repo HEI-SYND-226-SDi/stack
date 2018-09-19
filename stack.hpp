@@ -35,7 +35,6 @@ public:
 
     T pop() {
         if (position_ == 0){
-            position_++;
             throw std::out_of_range("Stack is empty");
         }
         position_--;
