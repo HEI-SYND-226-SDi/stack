@@ -47,7 +47,6 @@ public:
         } else
         {
             throw std::out_of_range("Stack is empty");
-            return std::move(storage_[0]);
         }
     }
 
