@@ -50,6 +50,15 @@ public:
         }
     }
 
+    ~Stack()
+    {
+        if(storage_ != NULL)
+        {
+            delete storage_;
+            storage_ = NULL;
+        }
+    }
+
 private:
     T* storage_;
     std::size_t capacity_;
