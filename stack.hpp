@@ -29,7 +29,10 @@ public:
         if (position_ <= 0) throw std::out_of_range("Stack is empty");
         return std::move(storage_[--position_]);
     }
-
+    ~Stack()
+    {
+            delete[] storage_;
+    }
 private:
     T* storage_;
     std::size_t capacity_;
