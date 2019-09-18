@@ -32,6 +32,6 @@ public:
 
 private:
     T* storage_;
-    std::size_t capacity_;
+    std::size_t capacity_ = 0;
     std::size_t position_ = 0;
 };
