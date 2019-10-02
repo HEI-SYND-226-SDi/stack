@@ -105,6 +105,7 @@ int main() {
     });
 
     std::cout << "** \033[32mALL TESTS PASSED, congrats!\033[0m **";
+    std::cout << "\n** \033[32mALL TESTS PASSED, congrats!\033[0m **\n\n";
 
     return 0;
 }
