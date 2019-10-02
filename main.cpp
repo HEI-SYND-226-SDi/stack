@@ -1,14 +1,30 @@
 #include <functional>
 #include <iostream>
+#include <memory>
+#include <vector>
 
 #include "stack.hpp"
 #include "utils/test.hpp"
 
+
+static std::vector<void*> allocations_;
+
+void* operator new[](std::size_t size) {
+    auto memory = malloc(size);
+    allocations_.push_back(memory);
+    return memory;
+}
+
+void operator delete[](void *memory) noexcept {
+    allocations_.erase(std::remove(allocations_.begin(), allocations_.end(), memory), allocations_.end());
+    free(memory);
+}
+
 int main() {
     std::cout << "\n\n"
-              << "*************************\n"
-              << "* Running unit tests... *\n"
-              << "*************************\n";
+              << "*******************************************************\n"
+              << "* Running unit tests...                               *\n"
+              << "*******************************************************\n";
 
     test(" -> Stack functionality", []() {
         Stack<int> stack(3);
@@ -104,7 +120,11 @@ int main() {
         return false;
     });
 
-    std::cout << "** \033[32mALL TESTS PASSED, congrats!\033[0m **";
+    test(" -> Memory leaks", []() {
+        return allocations_.size() == 0;
+    });
+
+    std::cout << "\n** \033[32mALL TESTS PASSED, congrats!\033[0m **\n\n";
 
     return 0;
 }
