@@ -6,6 +6,10 @@ template <typename T>
 class Stack {
 public:
     Stack(std::size_t capacity): storage_(new T[capacity]), capacity_(capacity) {}
+    ~Stack()    //adding destructor, memory leak fixed
+    {
+        delete [] storage_;
+    }
 
     inline std::size_t capacity() const {
         return capacity_;
@@ -32,6 +36,6 @@ public:
 
 private:
     T* storage_;
-    std::size_t capacity_;
+    std::size_t capacity_ = 0;
     std::size_t position_ = 0;
 };
