@@ -47,6 +47,7 @@ int main() {
             return true;
         }
         return false;
+        stack.~Stack();
     });
 
     test(" -> Push to full stack with copy semantics", []() {
@@ -65,6 +66,7 @@ int main() {
             return true;
         }
         return false;
+        stack.~Stack();
     });
 
     test(" -> Pop from empty stack", []() {
