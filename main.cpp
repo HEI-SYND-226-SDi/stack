@@ -29,6 +29,7 @@ int main() {
             return false;
         }
         return true;
+        stack.~Stack();
     });
 
     test(" -> Push to full stack with move semantics", []() {
@@ -82,6 +83,7 @@ int main() {
             return true;
         }
         return false;
+        stack.~Stack();
     });
 
     test(" -> Push to stack with 0 capacity", []() {
@@ -92,6 +94,7 @@ int main() {
             return true;
         }
         return false;
+        stack.~Stack();
     });
 
     test(" -> Pop from stack with 0 capacity", []() {
@@ -102,6 +105,7 @@ int main() {
             return true;
         }
         return false;
+        stack.~Stack();
     });
 
     std::cout << "** \033[32mALL TESTS PASSED, congrats!\033[0m **";
