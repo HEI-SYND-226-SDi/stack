@@ -22,9 +22,9 @@ void operator delete[](void *memory) noexcept {
 
 int main() {
     std::cout << "\n\n"
-              << "*************************\n"
-              << "* Running unit tests... *\n"
-              << "*************************\n";
+              << "*******************************************************\n"
+              << "* Running unit tests...                               *\n"
+              << "*******************************************************\n";
 
     test(" -> Stack functionality", []() {
         Stack<int> stack(3);
@@ -123,8 +123,6 @@ int main() {
     test(" -> Memory leaks", []() {
         return allocations_.size() == 0;
     });
-
     std::cout << "** \033[32mALL TESTS PASSED, congrats!\033[0m **";
-
     return 0;
 }
