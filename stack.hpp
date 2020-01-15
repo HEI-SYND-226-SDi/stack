@@ -1,7 +1,6 @@
 #pragma once
 #include <cstddef>
 #include <stdexcept>
-#include <iostream>
 template <typename T>
 class Stack {
 public:
@@ -9,10 +8,7 @@ public:
 
     ~Stack()
     {
-        if(this->storage_ != nullptr) {
-            delete[] storage_;
-        }
-
+        delete[] storage_;
     }
 
     inline std::size_t capacity() const {
