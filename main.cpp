@@ -123,7 +123,7 @@ int main() {
         return allocations_.size() == 0;
     });
 
-    std::cout << "** \033[32mALL TESTS PASSED, congrats!\033[0m **";
+    std::cout << "** \033[32mALL TESTS PASSED, congrat!\033[0m **";
 
     return 0;
 }
