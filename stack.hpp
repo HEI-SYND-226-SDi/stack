@@ -10,7 +10,10 @@ public:
     inline std::size_t capacity() const {
         return capacity_;
     }
-
+    ~Stack()
+    {
+        delete[] storage_;
+    }
     inline std::size_t size() const {
         return position_;
     }
