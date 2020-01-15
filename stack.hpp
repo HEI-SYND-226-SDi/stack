@@ -10,7 +10,7 @@ public:
     ~Stack()
     {
         if(this->storage_ != nullptr) {
-            delete storage_;
+            delete[] storage_;
         }
 
     }
