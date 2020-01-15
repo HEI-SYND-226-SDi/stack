@@ -1,8 +1,23 @@
 #include <functional>
 #include <iostream>
+#include <memory>
+#include <vector>
 
 #include "stack.hpp"
 #include "utils/test.hpp"
+
+static std::vector<void*> allocations_;
+
+void* operator new[](std::size_t size) {
+    auto memory = malloc(size);
+    allocations_.push_back(memory);
+    return memory;
+}
+
+void operator delete[](void *memory) noexcept {
+    allocations_.erase(allocations_.begin(),allocations_.end());
+    free(memory);
+}
 
 int main() {
     std::cout << "\n\n"
@@ -102,6 +117,10 @@ int main() {
             return true;
         }
         return false;
+    });
+
+    test(" -> Memory leaks", []() {
+        return allocations_.size() == 0;
     });
 
     std::cout << "** \033[32mALL TESTS PASSED, congrats!\033[0m **";
